@@ -5,7 +5,8 @@ import {SET_LIKES,
     CHARACTERS_SUCCESS, 
     CHARACTERS_ERRORS, 
     CHARACTERS_CREATE, 
-    CHARACTERS_CREATE_SUCCESS} from '../types/character'
+    CHARACTERS_CREATE_SUCCESS,
+    CHARACTER_NEW} from '../types/character'
 
 const defaultState = Immutable({
     likes: 0,
@@ -50,6 +51,10 @@ export default function character(state = defaultState, action = {}) {
                 fetching: false,
                 createdCharacter: action.payload,
                 characters: newCharacters,
+            })
+        case CHARACTER_NEW:
+            return state.merge({
+                createdCharacter: null,
             })
         default:
             return defaultState

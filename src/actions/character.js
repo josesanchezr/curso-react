@@ -3,7 +3,8 @@ import {SET_LIKES,
     CHARACTERS_SUCCESS, 
     CHARACTERS_ERRORS, 
     CHARACTERS_CREATE,
-    CHARACTERS_CREATE_SUCCESS} from '../types/character'
+    CHARACTERS_CREATE_SUCCESS,
+    CHARACTER_NEW} from '../types/character'
 
 export const setLikes = payload =>({
     type: SET_LIKES,
@@ -55,4 +56,8 @@ export const createCharacter = payload => ({
 export const createCharacterSuccess = payload => ({
     type: CHARACTERS_CREATE_SUCCESS,
     payload
+})
+
+export const characterNew = () => ({
+    type: CHARACTER_NEW
 })

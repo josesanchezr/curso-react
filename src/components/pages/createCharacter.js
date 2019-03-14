@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {Dimmer, Loader} from 'semantic-ui-react'
-import {createCharacter} from '../../actions/character'
+import {createCharacter, characterNew} from '../../actions/character'
 import {Form, Button, Message} from 'semantic-ui-react'
 
 class NewCharacter extends React.Component {
@@ -24,6 +24,10 @@ class NewCharacter extends React.Component {
 
     createCharacter() {
         this.props.createCharacter(this.state.character)
+    }
+
+    componentDidMount() {
+        this.props.characterNew()
     }
 
     render() {
@@ -84,4 +88,4 @@ const mapStateToProps = (state) => ({
     character: state.character
 })
 
-export default connect(mapStateToProps, {createCharacter})(NewCharacter)
+export default connect(mapStateToProps, {createCharacter, characterNew})(NewCharacter)
